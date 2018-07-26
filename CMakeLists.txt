@@ -14,6 +14,17 @@ target_link_libraries(kkmeans openblas)
 
 install(TARGETS kkmeans RUNTIME DESTINATION bin)
 
+install(
+    FILES draw.py run.sh
+    PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
+    DESTINATION  "/opt/kkmeans"
+)
+
+install(
+    FILES kkmeans_ex.txt sky.txt
+    DESTINATION  "/opt/kkmeans"
+)
+
 set(CPACK_GENERATOR DEB)
 
 set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")
